@@ -15,8 +15,8 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Home from "views/Home.js";
-import Profile from "views/examples/Profile.js";
+import Home from "views/Home/Home.js";
+import AboutMe from "views/AboutMe/AboutMe.js";
 import Maps from "views/examples/Maps.js";
 import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
@@ -46,10 +46,10 @@ var routes = [
     layout: "/student"
   },
   {
-    path: "/user-profile",
-    name: "User Profile",
+    path: "/aboutme",
+    name: "About Me",
     icon: "ni ni-single-02 text-yellow",
-    component: Profile,
+    component: AboutMe,
     layout: "/student"
   },
   {

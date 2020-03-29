@@ -36,7 +36,7 @@ import {
   chartExample2
 } from "variables/charts.js";
 
-import Header from "components/Headers/Header.js";
+import Header from "./Header.js";
 
 class Index extends React.Component {
   constructor(props){
