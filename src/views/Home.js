@@ -16,33 +16,23 @@
 
 */
 import React from "react";
-// node.js library that concatenates classes (strings)
-import classnames from "classnames";
 // javascipt plugin for creating charts
 import Chart from "chart.js";
 // react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 // reactstrap components
 import {
   Button,
-  Card,
-  CardHeader,
-  CardBody,
-  NavItem,
-  NavLink,
-  Nav,
   Progress,
-  Table,
-  Container,
-  Row,
-  Col
+  Table
 } from "reactstrap";
+import {Container,Card, CardHeader, CardContent} from '@material-ui/core';
+import {Row, Col} from 'react-bootstrap';
 
 // core components
 import {
   chartOptions,
   parseOptions,
-  chartExample1,
   chartExample2
 } from "variables/charts.js";
 
@@ -74,82 +64,23 @@ class Index extends React.Component {
         {/* Page content */}
         <Container className="mt--7" fluid>
           <Row>
-            <Col className="mb-5 mb-xl-0" xl="8">
+            <Col className="mb-5 mb-xl-0" xl="12">
               <Card className="bg-gradient-default shadow">
-                <CardHeader className="bg-transparent">
+                <CardContent>
                   <Row className="align-items-center">
                     <div className="col">
                       <h6 className="text-uppercase text-light ls-1 mb-1">
                         Overview
                       </h6>
-                      <h2 className="text-white mb-0">Sales value</h2>
-                    </div>
-                    <div className="col">
-                      <Nav className="justify-content-end" pills>
-                        <NavItem>
-                          <NavLink
-                            className={classnames("py-2 px-3", {
-                              active: this.state.activeNav === 1
-                            })}
-                            href="#pablo"
-                            onClick={e => this.toggleNavs(e, 1)}
-                          >
-                            <span className="d-none d-md-block">Month</span>
-                            <span className="d-md-none">M</span>
-                          </NavLink>
-                        </NavItem>
-                        <NavItem>
-                          <NavLink
-                            className={classnames("py-2 px-3", {
-                              active: this.state.activeNav === 2
-                            })}
-                            data-toggle="tab"
-                            href="#pablo"
-                            onClick={e => this.toggleNavs(e, 2)}
-                          >
-                            <span className="d-none d-md-block">Week</span>
-                            <span className="d-md-none">W</span>
-                          </NavLink>
-                        </NavItem>
-                      </Nav>
+                      <h2 className="text-white mb-0">Monthly Calendar</h2>
                     </div>
                   </Row>
-                </CardHeader>
-                <CardBody>
-                  {/* Chart */}
-                  <div className="chart">
-                    <Line
-                      data={chartExample1[this.state.chartExample1Data]}
-                      options={chartExample1.options}
-                      getDatasetAtEvent={e => console.log(e)}
-                    />
-                  </div>
-                </CardBody>
+                  <iframe width="100%" title="CalendarFrame" src="https://calendar.google.com/calendar/b/3/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=America%2FChicago&amp;src=bHJyOTJhcjBuOXRvM25kZTlna2ZlbDFzNWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=bTd1MDMzczd1OW04MGtoYW50MXBidHYzY2NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=Y3NlLWRlcHRAdXRhLmVkdQ&amp;src=ZG8wNWU0bTc1YmlqbjlpcHBpbXQybzhiZGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=aDhkODNhZnBpY2x2ZHZ0M3VxNjlxdGxhODBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=YWdkOWdiMGJrazhob2Fsdmptc2NuamZmaHNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23E4C441&amp;color=%23EF6C00&amp;color=%23D50000&amp;color=%2333B679&amp;color=%23B39DDB&amp;color=%23039BE5&amp;title=CSE%20Undergrad%20Advising%20Schedule&amp;showTabs=0&amp;showCalendars=0" styles="border-width:0" width="1020" height="800" frameborder="0" scrolling="no"></iframe>         
+
+                </CardContent>
               </Card>
             </Col>
-            <Col xl="4">
-              <Card className="shadow">
-                <CardHeader className="bg-transparent">
-                  <Row className="align-items-center">
-                    <div className="col">
-                      <h6 className="text-uppercase text-muted ls-1 mb-1">
-                        Performance
-                      </h6>
-                      <h2 className="mb-0">Total orders</h2>
-                    </div>
-                  </Row>
-                </CardHeader>
-                <CardBody>
-                  {/* Chart */}
-                  <div className="chart">
-                    <Bar
-                      data={chartExample2.data}
-                      options={chartExample2.options}
-                    />
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
+
           </Row>
           <Row className="mt-5">
             <Col className="mb-5 mb-xl-0" xl="8">
