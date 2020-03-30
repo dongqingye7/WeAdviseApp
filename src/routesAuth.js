@@ -1,7 +1,7 @@
 import LandingPage from "views/LandingPage/LandingPage.js";
 import AdvisorLogin from "views/Login/AdvisorLogin.js";
 import StudentLogin from 'views/Login/StudentLogin.js';
-
+import StudentSignup from "views/Signup/StudentSignup.js";
 
 var routes = [
   {
@@ -24,6 +24,14 @@ var routes = [
     icon: "ni ni-active-40 text-blue",
     component: StudentLogin,
     layout: "/auth"
+  },
+  {
+    path: "/student/signup",
+    name: "StudentSignup",
+    icon: "ni ni-active-40 text-blue",
+    component: StudentSignup,
+    layout: "/auth"
   }
+
 ];
 export default routes;
