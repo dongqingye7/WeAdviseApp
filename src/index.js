@@ -31,7 +31,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/student" render={props => <AdminLayout {...props} />} />
       <Route path="/auth" render={props => <AuthLayout {...props} />} />
-      <Redirect from="/" to="/student/home" />
+      <Redirect from="/" to="/auth/landingpage" />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
