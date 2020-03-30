@@ -24,7 +24,7 @@ import { Container, Row, Col } from "reactstrap";
 import AuthNavbar from "components/Navbars/AuthNavbar.js";
 import AuthFooter from "components/Footers/AuthFooter.js";
 
-import routes from "routes.js";
+import routes from "routesAuth.js";
 
 class Auth extends React.Component {
   componentDidMount() {
@@ -59,10 +59,9 @@ class Auth extends React.Component {
                 <Row className="justify-content-center">
                   <Col lg="5" md="6">
                     <h1 className="text-white">Welcome!</h1>
-                    <p className="text-lead text-light">
-                      Use these awesome forms to login or create new account in
-                      your project for free.
-                    </p>
+                    {/* <p className="text-lead text-light">
+                      Please choose below to login.
+                    </p> */}
                   </Col>
                 </Row>
               </div>
@@ -84,11 +83,11 @@ class Auth extends React.Component {
             </div>
           </div>
           {/* Page content */}
-          <Container className="mt--8 pb-5">
+          <Container className="mt--9 pb-5">
             <Row className="justify-content-center">
               <Switch>
                 {this.getRoutes(routes)}
-                <Redirect from="*" to="/auth/login" />
+                <Redirect from="*" to="/auth/landingpage" />
               </Switch>
             </Row>
           </Container>

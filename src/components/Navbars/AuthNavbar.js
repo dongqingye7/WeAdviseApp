@@ -19,15 +19,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 // reactstrap components
 import {
-  UncontrolledCollapse,
   NavbarBrand,
   Navbar,
-  NavItem,
-  NavLink,
-  Nav,
   Container,
-  Row,
-  Col
+
 } from "reactstrap";
 
 class AdminNavbar extends React.Component {
@@ -39,22 +34,17 @@ class AdminNavbar extends React.Component {
           expand="md"
         >
           <Container className="px-4">
-            <NavbarBrand to="/" tag={Link}>
-              <img alt="..." src={require("assets/img/brand/argon-react-white.png")} />
+            <NavbarBrand to="/auth" tag={Link} className="pt-3 text-white text-lg">
+              We Advise
             </NavbarBrand>
-            <button className="navbar-toggler" id="navbar-collapse-main">
+            {/* <button className="navbar-toggler" id="navbar-collapse-main">
               <span className="navbar-toggler-icon" />
             </button>
             <UncontrolledCollapse navbar toggler="#navbar-collapse-main">
               <div className="navbar-collapse-header d-md-none">
                 <Row>
                   <Col className="collapse-brand" xs="6">
-                    <Link to="/">
-                      <img
-                        alt="..."
-                        src={require("assets/img/brand/argon-react.png")}
-                      />
-                    </Link>
+                    We Advise
                   </Col>
                   <Col className="collapse-close" xs="6">
                     <button
@@ -66,8 +56,8 @@ class AdminNavbar extends React.Component {
                     </button>
                   </Col>
                 </Row>
-              </div>
-              <Nav className="ml-auto" navbar>
+              </div> */}
+              {/* <Nav className="ml-auto" navbar>
                 <NavItem>
                   <NavLink className="nav-link-icon" to="/" tag={Link}>
                     <i className="ni ni-planet" />
@@ -103,9 +93,9 @@ class AdminNavbar extends React.Component {
                     <i className="ni ni-single-02" />
                     <span className="nav-link-inner--text">Profile</span>
                   </NavLink>
-                </NavItem>
+                </NavItem> 
               </Nav>
-            </UncontrolledCollapse>
+            </UncontrolledCollapse>*/}
           </Container>
         </Navbar>
       </>

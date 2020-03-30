@@ -38,7 +38,7 @@ import {
 
 import Header from "./Header.js";
 
-class Index extends React.Component {
+class Home extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -276,4 +276,4 @@ class Index extends React.Component {
   }
 }
 
-export default Index;
+export default Home;

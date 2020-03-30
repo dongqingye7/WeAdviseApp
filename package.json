@@ -1,5 +1,5 @@
 {
-  "name": "WeAdviseApp",
+  "name": "we-advise-app",
   "version": "1.1.0",
   "description": "Student-side App",
   "main": "index.js",
@@ -58,7 +58,7 @@
     "react-datetime": "2.16.3",
     "react-dom": "16.12.0",
     "react-google-maps": "9.4.5",
-    "react-router-dom": "5.1.2",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "reactstrap": "8.4.1"
   },
