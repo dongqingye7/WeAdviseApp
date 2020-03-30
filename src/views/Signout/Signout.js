@@ -1,10 +1,12 @@
 import React from 'react';
+import { auth } from "../firebase";
+
 
 function Signout() {
   return (
-    <div className="Signout">
-      <h1>Signout Page</h1>
-    </div>
+    <Button color="info" onClick={auth.doSignOut}>
+    Sign Out
+  </Button>
   );
 }
 
