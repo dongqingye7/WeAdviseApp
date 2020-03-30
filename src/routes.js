@@ -84,4 +84,7 @@ var routes = [
     layout: "/auth"
   }
 ];
+export const SIGN_IN = "views/examples/Login.js";
+export const SIGN_UP = "/signup";
+
 export default routes;

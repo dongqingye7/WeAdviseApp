@@ -16,6 +16,9 @@
 
 */
 import React from "react";
+import { auth, db } from "../../components/Firebase";
+import { withRouter } from "react-router-dom";
+
 
 // reactstrap components
 import {
@@ -34,8 +37,63 @@ import {
 import { Button } from '@material-ui/core';
 import {Link} from "react-router-dom";
 
+const byPropKey = (propertyName, value) => () => ({
+  [propertyName]: value
+});
+
+const INITIAL_STATE = {
+  email: "",
+  password: "",
+  error: null,
+  showingAlert: false,
+  role: ""
+};
+
 class StudentLogin extends React.Component {
+
+  state = { ...INITIAL_STATE };
+
+  onSubmit = event => {
+    const { email, password, role } = this.state;
+
+    const { history } = this.props;
+
+    auth
+      .doSignInWithEmailAndPassword(email, password,role)
+      .then(() => {
+        this.setState({ ...INITIAL_STATE });
+      
+        history.push();
+        
+        
+      })
+      .catch(error => {
+        this.setState(byPropKey("error", error));
+        this.timer(); //defined below
+      });
+
+    event.preventDefault();
+  };
+
+  
+
+  timer = () => {
+    this.setState({
+      showingAlert: true
+    });
+
+    setTimeout(() => {
+      this.setState({
+        showingAlert: false
+      });
+    }, 4000);
+  };
+
   render() {
+
+    const { email, password, error, role, showingAlert } = this.state;
+    const isInvalid = password === "" || email === ""|| role =="Advisor";
+
     return (
       <>
         <Col lg="5" md="7">
@@ -57,7 +115,13 @@ class StudentLogin extends React.Component {
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Email" type="email" autoComplete="new-email"/>
+                    <Input placeholder="Email" type="email" autoComplete="new-email"
+                    value={email}
+                    onChange={event =>
+                      this.setState(byPropKey("email", event.target.value))
+                    }
+                    
+                    />
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
@@ -70,19 +134,7 @@ class StudentLogin extends React.Component {
                     <Input placeholder="Password" type="password" autoComplete="new-password"/>
                   </InputGroup>
                 </FormGroup>
-                {/* <div className="custom-control custom-control-alternative custom-checkbox">
-                  <input
-                    className="custom-control-input"
-                    id=" customCheckLogin"
-                    type="checkbox"
-                  />
-                  <label
-                    className="custom-control-label"
-                    htmlFor=" customCheckLogin"
-                  >
-                    <span className="text-muted">Remember me</span>
-                  </label>
-                </div> */}
+                
                 <div className="text-center">
                 <Button className="my-4" size="large" variant="contained" color="primary" raised component={Link} to="/student">
                     Sign in
@@ -93,19 +145,12 @@ class StudentLogin extends React.Component {
           </Card>
           <Row className="mt-3">
             <Col xs="6">
-              {/* <a
-                className="text-light"
-                href="#pablo"
-                onClick={e => e.preventDefault()}
-              >
-                <small>Forgot password?</small>
-              </a> */}
+              
             </Col>
             <Col className="text-right" xs="6">
               <a
                 className="text-light"
                 href="./signup"
-                // onClick={e => e.preventDefault()}
               >
                 <small>Create new account</small>
               </a>
@@ -117,4 +162,4 @@ class StudentLogin extends React.Component {
   }
 }
 
-export default StudentLogin;
+export default withRouter(StudentLogin);
