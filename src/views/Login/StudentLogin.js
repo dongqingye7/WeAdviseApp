@@ -35,7 +35,7 @@ import {
   Col
 } from "reactstrap";
 import { Button } from '@material-ui/core';
-import {Link} from "react-router-dom";
+
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
@@ -71,7 +71,7 @@ class StudentLogin extends React.Component {
         this.setState(byPropKey("error", error));
         this.timer(); //defined below
       });
-
+    this.routeChange();
     event.preventDefault();
   };
 
@@ -88,6 +88,11 @@ class StudentLogin extends React.Component {
       });
     }, 4000);
   };
+
+  routeChange=()=> {
+    let path = "/student";
+    this.props.history.push(path);
+  }
 
   render() {
 
@@ -107,7 +112,7 @@ class StudentLogin extends React.Component {
               <div className="text-center text-muted mb-4">
                 <small>Sign in with credentials</small>
               </div>
-              <Form role="form">
+              <Form role="form" onSubmit={this.onSubmit}>
                 <FormGroup className="mb-3">
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -136,7 +141,7 @@ class StudentLogin extends React.Component {
                 </FormGroup>
                 
                 <div className="text-center">
-                <Button className="my-4" size="large" variant="contained" color="primary" raised component={Link} to="/student">
+                <Button className="my-4" size="large" variant="contained" color="primary" type="submit">
                     Sign in
                 </Button>
                 </div>
